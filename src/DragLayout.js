@@ -78,8 +78,6 @@ export default class DragLayout extends PureComponent {
       y: Infinity, // puts it at the bottom
       w: 2,
       h: 2,
-      minW:2,
-      minH:2,
       i: new Date().getTime().toString(),
     };
     this.setState(
@@ -113,7 +111,7 @@ export default class DragLayout extends PureComponent {
         <Button type="primary" style={{'marginRight':'20px'}} onClick={this.addChart.bind(this,'line')}>Add Line chart</Button>
         <Button type="primary" style={{'marginRight':'20px'}} onClick={this.addChart.bind(this,'pie')}>Add Pie chart</Button>
       </Header>
-      <Content style={{ marginTop: 24 }}>
+      <Content style={{ marginTop: 44 }}>
         <div style={{ background: '#fff', padding: 24, minHeight: 800 }}>
           <ResponsiveReactGridLayout
             className="layout"

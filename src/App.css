@@ -29,8 +29,25 @@
 
 .remove{
   position: absolute;
-  right: 0;
-  top: 10px;
-  cursor:pointer;
+  right: 7px;
+  top: 1px;
+  cursor: pointer;
   z-index: 999;
+  display:none;
+}
+.react-grid-item{
+  border: 1px solid #ececec;
+  padding: 10px;
+}
+
+.react-grid-item:hover .remove{
+  display:inline-block;
+}
+
+.react-resizable-handle{
+  visibility: hidden;
+}
+
+.react-grid-item:hover .react-resizable-handle{
+  visibility: visible;
 }

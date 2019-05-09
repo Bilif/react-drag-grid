@@ -74,9 +74,9 @@ export default class DragLayout extends PureComponent {
 
   addChart(type) {
     const addItem = {
-      x: (this.state.widgets.length * 2) % (this.state.cols || 12),
+      x: (this.state.widgets.length * 3) % (this.state.cols || 12),
       y: Infinity, // puts it at the bottom
-      w: 2,
+      w: 3,
       h: 2,
       i: new Date().getTime().toString(),
     };

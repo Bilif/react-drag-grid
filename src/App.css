@@ -27,4 +27,10 @@
   color: #61dafb;
 }
 
-
+.remove{
+  position: absolute;
+  right: 0;
+  top: 10px;
+  cursor:pointer;
+  z-index: 999;
+}

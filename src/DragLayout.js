@@ -16,15 +16,37 @@ export default class DragLayout extends PureComponent {
 
   constructor(props) {
     super(props);
+
     this.state = {
-      layout: [],
-      data: [],
-    };
+      layouts: this.getFromLS("layouts") || {},
+      widgets:[]
+    }
   }
 
+  getFromLS(key) {
+    let ls = {};
+    if (global.localStorage) {
+      try {
+        ls = JSON.parse(global.localStorage.getItem("rgl-8")) || {};
+      } catch (e) {
+        /*Ignore*/
+      }
+    }
+    return ls[key];
+  }
+
+  saveToLS(key, value) {
+    if (global.localStorage) {
+      global.localStorage.setItem(
+        "rgl-8",
+        JSON.stringify({
+          [key]: value
+        })
+      );
+    }
+  }
   generateDOM = () => {
-    // const componentLayout = JSON.parse(window.localStorage.getItem('component'));
-    return _.map(this.state.data, (l, i) => {
+    return _.map(this.state.widgets, (l, i) => {
       let option;
       if (l.type === 'bar') {
         option = getBarChart();
@@ -42,7 +64,8 @@ export default class DragLayout extends PureComponent {
         />
       )
       return (
-        <div key={i} data-grid={l}>
+        <div key={l.i} data-grid={l}>
+          <span className='remove' onClick={this.onRemoveItem.bind(this, i)}>x</span>
           {component}
         </div>
       );
@@ -51,22 +74,36 @@ export default class DragLayout extends PureComponent {
 
   addChart(type) {
     const addItem = {
-      x: (this.state.layout.length * 2) % (this.state.cols || 12),
+      x: (this.state.widgets.length * 2) % (this.state.cols || 12),
       y: Infinity, // puts it at the bottom
       w: 2,
       h: 2,
-      i: this.state.layout.length.toString(),
+      minW:2,
+      minH:2,
+      i: new Date().getTime().toString(),
     };
     this.setState(
       {
-        layout: this.state.layout.concat(addItem),
-        data: this.state.data.concat({
+        widgets: this.state.widgets.concat({
           ...addItem,
           type,
         }),
       },
     );
   };
+
+  onRemoveItem(i) {
+    console.log(this.state.widgets)
+    this.setState({
+      widgets: this.state.widgets.filter((item,index) => index !=i)
+    });
+
+  }
+
+  onLayoutChange(layout, layouts) {
+    this.saveToLS("layouts", layouts);
+    this.setState({ layouts });
+  }
 
   render() {
    return(
@@ -79,9 +116,12 @@ export default class DragLayout extends PureComponent {
       <Content style={{ marginTop: 24 }}>
         <div style={{ background: '#fff', padding: 24, minHeight: 800 }}>
           <ResponsiveReactGridLayout
+            className="layout"
             {...this.props}
-            onBreakpointChange={this.onBreakpointChange}
-            onLayoutChange={this.onLayoutChange}
+            layouts={this.state.layouts}
+            onLayoutChange={(layout, layouts) =>
+              this.onLayoutChange(layout, layouts)
+            }
           >
             {this.generateDOM()}
           </ResponsiveReactGridLayout>

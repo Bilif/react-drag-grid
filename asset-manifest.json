@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/react-drag-grid/static/css/main.c271a1bd.chunk.css",
+    "main.js": "/react-drag-grid/static/js/main.5cbd9b57.chunk.js",
+    "main.js.map": "/react-drag-grid/static/js/main.5cbd9b57.chunk.js.map",
+    "runtime~main.js": "/react-drag-grid/static/js/runtime~main.d05a7fe6.js",
+    "runtime~main.js.map": "/react-drag-grid/static/js/runtime~main.d05a7fe6.js.map",
+    "static/css/2.22b482e6.chunk.css": "/react-drag-grid/static/css/2.22b482e6.chunk.css",
+    "static/js/2.dc4a54bd.chunk.js": "/react-drag-grid/static/js/2.dc4a54bd.chunk.js",
+    "static/js/2.dc4a54bd.chunk.js.map": "/react-drag-grid/static/js/2.dc4a54bd.chunk.js.map",
+    "index.html": "/react-drag-grid/index.html",
+    "precache-manifest.089dc3516b6e080b72b31bb30bffe33f.js": "/react-drag-grid/precache-manifest.089dc3516b6e080b72b31bb30bffe33f.js",
+    "service-worker.js": "/react-drag-grid/service-worker.js",
+    "static/css/2.22b482e6.chunk.css.map": "/react-drag-grid/static/css/2.22b482e6.chunk.css.map",
+    "static/css/main.c271a1bd.chunk.css.map": "/react-drag-grid/static/css/main.c271a1bd.chunk.css.map"
+  }
+}

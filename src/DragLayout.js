@@ -106,13 +106,13 @@ export default class DragLayout extends PureComponent {
   render() {
    return(
      <Layout>
-      <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
-        <Button type="primary" style={{'marginRight':'20px'}} onClick={this.addChart.bind(this,'bar')}>Add Bar chart</Button>
-        <Button type="primary" style={{'marginRight':'20px'}} onClick={this.addChart.bind(this,'line')}>Add Line chart</Button>
-        <Button type="primary" style={{'marginRight':'20px'}} onClick={this.addChart.bind(this,'pie')}>Add Pie chart</Button>
+      <Header style={{ position: 'fixed', zIndex: 1, width: '100%','padding': '0 30px' }}>
+        <Button type="primary" style={{'marginRight':'7px'}} onClick={this.addChart.bind(this,'bar')}>添加柱状图</Button>
+        <Button type="primary" style={{'marginRight':'7px'}} onClick={this.addChart.bind(this,'line')}>添加折线图</Button>
+        <Button type="primary" style={{'marginRight':'7px'}} onClick={this.addChart.bind(this,'pie')}>添加饼图</Button>
       </Header>
       <Content style={{ marginTop: 44 }}>
-        <div style={{ background: '#fff', padding: 24, minHeight: 800 }}>
+        <div style={{ background: '#fff', padding: 20, minHeight: 800 }}>
           <ResponsiveReactGridLayout
             className="layout"
             {...this.props}
